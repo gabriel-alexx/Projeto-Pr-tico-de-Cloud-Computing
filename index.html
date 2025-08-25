@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skyline GTR R33</title>
+  <meta name="description" content="Historia do GTR R33." />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- SEO básico -->
+  <meta property="og:title" content="Meu Site Estático" />
+  <meta property="og:description" content="Historia do GTR R33." />
+  <meta property="og:type" content="website" />
+
+
+  <style>
+    /* ===== Reset simples ===== */
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.6;color:#0f172a;background:#0b1220}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    :root{
+      --bg:#0b1220;          /* fundo geral */
+      --card:#0f172a;        /* cartões */
+      --soft:#141b2d;        /* elementos suaves */
+      --brand:#0ea5e9;       /* azul */
+      --brand-2:#22d3ee;     /* ciano */
+      --text:#e2e8f0;        /* texto principal */
+      --muted:#94a3b8;       /* texto secundário */
+      --ring:0 0 0 3px rgba(14,165,233,.3);
+      --radius:16px;
+      --shadow:0 10px 30px rgba(2,8,23,.35);
+    }
+
+    /* ===== Layout ===== */
+    .container{width:min(1100px,92vw);margin-inline:auto}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.7);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:.6rem;font-weight:700;color:var(--text)}
+    .logo .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(45deg,var(--brand),var(--brand-2))}
+    .menu{display:flex;gap:1rem;align-items:center}
+    .menu a{color:var(--muted);padding:.5rem .75rem;border-radius:10px}
+    .menu a:hover,.menu a:focus{color:var(--text);background:rgba(255,255,255,.06);outline:none}
+    .cta{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#001119;padding:.6rem .9rem;border-radius:12px;font-weight:600;box-shadow:var(--shadow)}
+
+    /* Mobile nav */
+    .burger{display:none;flex-direction:column;gap:4px}
+    .burger span{width:26px;height:2px;background:#cbd5e1}
+
+    /* ===== Hero ===== */
+    .hero{padding:80px 0;background:radial-gradient(1200px 500px at 50% -50%,rgba(34,211,238,.15),transparent),radial-gradient(800px 400px at 80% 0,rgba(14,165,233,.18),transparent)}
+    .hero-grid{display:grid;gap:2rem;grid-template-columns:1.15fr .85fr;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,211,238,.12);color:#7dd3fc;border:1px solid rgba(125,211,252,.3);padding:.4rem .7rem;border-radius:999px;font-size:.9rem}
+    h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:.8rem 0;color:#eaf2ff}
+    p.lead{color:var(--muted);font-size:1.05rem;max-width:55ch}
+    .hero-actions{display:flex;gap:1rem;margin-top:1.2rem;flex-wrap:wrap}
+    .ghost{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,255,255,.12);padding:.6rem .9rem;border-radius:12px;color:var(--text)}
+
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
+    .hero-img{aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#0ea5e91a,#22d3ee1a)}
+
+    /* ===== Features ===== */
+    section{padding:72px 0}
+    .section-title{font-size:1.8rem;color:#e8f0ff;margin-bottom:.5rem}
+    .section-sub{color:var(--muted);margin-bottom:2rem}
+    .grid-3{display:grid;gap:1.2rem;grid-template-columns:repeat(3,1fr)}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:1.2rem;transition:transform .2s ease, border .2s ease;box-shadow:0 6px 18px rgba(2,8,23,.25)}
+    .card:hover{transform:translateY(-4px);border-color:rgba(125,211,252,.25)}
+    .icon{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#001119;font-weight:800}
+    .muted{color:var(--muted)}
+
+    /* ===== Sobre ===== */
+    .about{display:grid;gap:1.5rem;grid-template-columns:1fr 1fr;align-items:center}
+    .about .panel{background:linear-gradient(180deg,rgba(14,165,233,.08),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:1.2rem}
+
+    /* ===== Contato ===== */
+    .contact{display:grid;gap:1.2rem;grid-template-columns:1fr 1fr}
+    form{display:grid;gap:.8rem}
+    label{font-size:.95rem;color:#cbd5e1}
+    input,textarea{width:100%;padding:.8rem;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0a1020;color:var(--text)}
+    input:focus,textarea:focus{outline:none;box-shadow:var(--ring);border-color:#38bdf8}
+    textarea{min-height:120px;resize:vertical}
+    .help{font-size:.85rem;color:#8aa0b8}
+
+    /* ===== Footer ===== */
+    footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.08);color:#9fb2c7}
+
+    /* ===== Responsivo ===== */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .about{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .menu{display:none;position:absolute;inset:60px 4% auto;flex-direction:column;background:#0b1220;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:.5rem}
+      .menu.open{display:flex}
+      .burger{display:flex}
+      .grid-3{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="principal">
+      <a class="logo" href="#topo" aria-label="Página inicial">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Skyline GTR R33.</span>
+      </a>
+      <nav>
+        <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div id="menu" class="menu">
+          <a href="#recursos">Sobre</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <main id="topo" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">⚡ Hitoria do Skyline GTR R33 </span>
+        <h1>Uma lenda em 4 rodas.</h1>
+        <p class="lead">O Nissan Skyline R33 GT-R foi lançado em 1995 como a segunda geração da linha GT-R da Nissan. É amplamente reconhecido por sua performance impressionante e inovações tecnológicas, sendo uma das versões mais equilibradas da série.</p>
+        <div class="hero-actions">
+          <a class="cta" href="#recursos">Ver recursos</a>
+          
+        </div>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <div class="hero-img" style="background:url('https://wallpapers.com/images/high/gray-skyline-car-in-autumn-pazbzxt1nkoif17p.webp') center/cover"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== Recursos ===== -->
+  <section id="recursos">
+    <div class="container">
+      <h2 class="section-title">Recursos</h2>
+      <p class="section-sub">Tudo o que você precisa saber sobre Skyline GTR R33.</p>
+      <div class="grid-3">
+        <article class="card">
+          <div class="icon">1</div>
+          <p class="muted"><strong>Motor:</strong> </br> 
+	Equipado com o motor RB26DETT, um 6 cilindros em linha biturbo de 2.6 litros, que entregava cerca de 280 cv de potência, embora esse número fosse 	deliberadamente limitado pela Nissan devido às regulamentações japonesas.</p>
+        </article>
+        <article class="card">
+          <div class="icon">2</div>
+          <p class="muted"><strong>Performance:</strong> </br> 
+	Aceleração de 0 a 100 km/h em cerca de 5,4 segundos, com uma velocidade máxima acima de 250 km/h.</p>
+        </article>
+        <article class="card">
+          <div class="icon">3</div>
+          <p class="muted"><strong>Tecnologia:</strong> </br> 
+	O R33 GT-R era um dos primeiros carros de produção a usar o sistema ATTESA E-TS (All-Wheel Drive) e o Super-HICAS (direção nas quatro rodas), que 	proporcionavam uma direção mais precisa e estabilidade em alta velocidade.</p>
+        </article>
+        <article class="card">
+          <div class="icon">4</div>
+          <p class="muted"><strong>Chassi e Aerodinâmica:</strong> </br> 
+	Melhorado em relação ao R32, com um design mais refinado, mais largo e com maior rigidez estrutural, o que ajudava na estabilidade e no conforto de 	direção.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Rodapé ===== -->
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <small>© <span id="year"></span> MinhaMarca. Todos os direitos reservados.</small>
+      <div style="display:flex;gap:.8rem;align-items:center">
+        <a href="#topo" class="ghost">Voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Atualiza o ano automaticamente no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menu mobile acessível
+    const burger = document.querySelector('.burger');
+    const menu = document.getElementById('menu');
+    burger?.addEventListener('click', () => {
+      const opened = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    });
+  </script>
+</body>
+</html>
